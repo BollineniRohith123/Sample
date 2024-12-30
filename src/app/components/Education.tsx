@@ -25,27 +25,25 @@ const educationDetails = [
 
 export default function Education() {
   return (
-    <section className="bg-white p-8 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-blue-600 mb-6">Education</h2>
-      <div className="space-y-6">
-        {educationDetails.map((edu) => (
-          <div 
-            key={edu.degree} 
-            className="border-l-4 border-blue-500 pl-4 py-4"
-          >
-            <h3 className="text-xl font-semibold text-gray-800">{edu.degree}</h3>
-            <p className="text-gray-600 mb-2">
-              {edu.institution} | Graduated {edu.graduationYear}
-            </p>
-            <p className="text-gray-700 mb-3">GPA: {edu.gpa}/4.0</p>
-            <ul className="list-disc list-inside text-gray-600">
-              {edu.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
+    <div className="space-y-6">
+      {educationDetails.map((edu) => (
+        <div 
+          key={edu.degree} 
+          className="bg-white border rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow"
+        >
+          <h3 className="text-2xl font-bold text-blue-600 mb-3">{edu.degree}</h3>
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-gray-700">{edu.institution}</span>
+            <span className="text-gray-600">Graduated {edu.graduationYear}</span>
           </div>
-        ))}
-      </div>
-    </section>
+          <p className="text-gray-700 mb-3">GPA: {edu.gpa}/4.0</p>
+          <ul className="list-disc list-inside text-gray-600 space-y-2">
+            {edu.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   )
 }

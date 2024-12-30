@@ -26,44 +26,39 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="bg-white p-8 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-blue-600 mb-6">Featured Projects</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <div 
-            key={project.title} 
-            className="border rounded-lg overflow-hidden hover:shadow-xl transition-shadow"
-          >
-            <div className="relative w-full h-48 bg-gray-100">
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                Project Screenshot
-              </div>
-            </div>
-            <div className="p-4">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <a 
-                href={project.githubLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-              >
-                View Project
-              </a>
-            </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <div 
+          key={project.title} 
+          className="bg-white border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+        >
+          <div className="bg-gray-200 h-48 flex items-center justify-center text-gray-500">
+            Project Image Placeholder
           </div>
-        ))}
-      </div>
-    </section>
+          <div className="p-6">
+            <h3 className="text-xl font-bold text-blue-600 mb-3">{project.title}</h3>
+            <p className="text-gray-700 mb-4">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <span 
+                  key={tech} 
+                  className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a 
+              href={project.githubLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
